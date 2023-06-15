@@ -1,8 +1,10 @@
 package exo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,7 +15,7 @@ import java.util.regex.Pattern;
  */
 public class TextTransformer {
     private final HashMap<String, String> fields = new HashMap<>();
-    private final Logger logger =Logger.getLogger("errorLogger");
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     /**
      * add a token who have to be read to transform the text, can't be added if the taken already exist
@@ -25,7 +27,7 @@ public class TextTransformer {
             this.fields.put(name,value);
         }
         else {
-            logger.log(Level.WARNING,"Ce token existe déja");
+            logger.warn("Ce token existe déja");
         }
     }
 

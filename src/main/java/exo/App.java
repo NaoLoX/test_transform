@@ -1,7 +1,8 @@
 package exo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Hello world!
@@ -9,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class App 
 {
-    private static final Logger logger =Logger.getLogger("errorLogger");
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
     /**
      * the main function of the program
      * @param args the params when you start the jar program
@@ -21,6 +22,6 @@ public class App
         textTransformer.addToken("age", "26");
         String text = "Hello [name], vous avez [age] ans ";
         String transformedText = textTransformer.transform(text);
-        logger.log(Level.INFO,transformedText);
+        logger.info(transformedText);
     }
 }
