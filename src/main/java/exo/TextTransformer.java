@@ -1,8 +1,11 @@
 package exo;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 /**
  * a class who transform a text with the different token you set
@@ -10,12 +13,7 @@ import java.util.regex.Pattern;
  */
 public class TextTransformer {
     private final HashMap<String, String> fields = new HashMap<>();
-
-    /**
-     * Default constructor
-     */
-    public TextTransformer() {
-    }
+    private final Logger logger =Logger.getLogger("errorLogger");
 
     /**
      * add a token who have to be read to transform the text, can't be added if the taken already exist
@@ -27,7 +25,7 @@ public class TextTransformer {
             this.fields.put(name,value);
         }
         else {
-            System.out.println("Ce token existe déja");
+            logger.log(Level.WARNING,"Ce token existe déja");
         }
     }
 
@@ -36,7 +34,7 @@ public class TextTransformer {
      * @param text the text you want to transform
      * @return the transformed text
      */
-    public String Transform(String text){
+    public String transform(String text){
         int capacity = (int) (text.length() *1.2f);
         StringBuilder stringBuilder = new StringBuilder(capacity);
         Pattern pattern = Pattern.compile("\\[(.+?)\\]");
