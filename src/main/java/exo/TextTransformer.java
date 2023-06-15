@@ -2,9 +2,7 @@ package exo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class TextTransformer {
     private final HashMap<String, String> fields = new HashMap<>();
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
+    private static final Logger logger = LoggerFactory.getLogger(TextTransformer.class);
 
     /**
      * add a token who have to be read to transform the text, can't be added if the taken already exist
